@@ -8,8 +8,7 @@ public class Main {
 		File pluginFolder = new File("Plugins");
 		pluginFolder.mkdir();// create plugins folder in current location.
 
-		PluginLoader loader = new PluginLoader();
-		LinkedList<MyInterface> loadedClasses = loader.loadMyInterfaceClasses(pluginFolder);
+		LinkedList<MyInterface> loadedClasses = (LinkedList<MyInterface>) PluginLoader.loadClasses(pluginFolder, MyInterface.class);
 		for (MyInterface myInterface : loadedClasses) {
 			System.out.println(myInterface.getMessage());
 		}

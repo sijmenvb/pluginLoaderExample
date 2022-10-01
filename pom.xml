@@ -4,5 +4,5 @@
   <artifactId>PluginLoaderExample</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>Plugin Loader Example</name>
-  <description>example using a </description>
+  <description>example using a plugin loader</description>
 </project>

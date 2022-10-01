@@ -35,13 +35,12 @@ public class PluginLoader {
 						URLClassLoader classLoader = new URLClassLoader(new URL[] { file.toURI().toURL() });
 
 						// look the class in package plugins with the same name as the file.
-						System.out.println(String.format("trying: %s",classpath));
 						Class<?> c = classLoader.loadClass(classpath);
 						
 						Interface el = classInterface.cast(c.getConstructor().newInstance(initargs));
 						
 						list.add(el);
-						System.out.println(String.format("Successfully loaded \"%s\" plugin!: %s", file.getName(),classpath));
+						System.out.println(String.format("Successfully loaded %s from \"%s\"", classpath, file.getName()));
 					} catch (Exception e) {
 						// Fail silently
 						// e.printStackTrace();

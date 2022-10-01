@@ -7,8 +7,11 @@ public class Main {
 	public static void main(String[] args) {
 		File pluginFolder = new File("Plugins");
 		pluginFolder.mkdir();// create plugins folder in current location.
-
-		LinkedList<MyInterface> loadedClasses = (LinkedList<MyInterface>) PluginLoader.loadClasses(pluginFolder, MyInterface.class);
+		
+		//load the plugins that implement MyInterface
+		LinkedList<MyInterface> loadedClasses = PluginLoader.loadClasses(pluginFolder, MyInterface.class);
+		
+		//print all the messages of all the loaded plugins.
 		for (MyInterface myInterface : loadedClasses) {
 			System.out.println(myInterface.getMessage());
 		}

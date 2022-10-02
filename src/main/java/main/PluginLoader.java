@@ -36,11 +36,12 @@ public class PluginLoader {
 
 						// look the class in package plugins with the same name as the file.
 						Class<?> c = classLoader.loadClass(classpath);
-						
+						classLoader.close();
 						Interface el = classInterface.cast(c.getConstructor().newInstance(initargs));
 						
 						list.add(el);
 						System.out.println(String.format("Successfully loaded %s from \"%s\"", classpath, file.getName()));
+						
 					} catch (Exception e) {
 						// Fail silently
 						// e.printStackTrace();
